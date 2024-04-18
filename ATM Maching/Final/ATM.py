@@ -1,57 +1,8 @@
-import pyttsx3
+from Voic_Controller import speak
 
-def speak(text):
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 150)  
-    engine.setProperty('volume', 0.9)  
-    engine.say(text)
-    engine.runAndWait()
-
-class Account:
-    def __init__(self, balance=0):
-        self.__balance = balance
-    
-    def get_balance(self):
-        return self.__balance
-    
-    def set_balance(self, amount):
-        self.__balance = amount
-    
-    def withdraw(self, amount):
-        if amount > 0 and self.__balance >= amount:
-            self.__balance -= amount
-            print("Withdrawal successful.")
-            speak("Withdrawal successful.")
-            
-            print("Remaining balance:", self.__balance)
-        else:
-            print("Invalid amount or insufficient funds.")
-            speak("Invalid amount or insufficient funds.")
-
-    def deposit(self, amount):
-        if amount > 0:
-            self.__balance += amount
-            print("Deposit successful.")
-            speak("Deposit successful.")
-            
-            print("Remaining balance:", self.__balance)
-        else:
-            print("Invalid amount.")
-            speak("Invalid amount.")
-
-class User(Account):
-    def __init__(self, name, pin, balance=0):
-        super().__init__(balance)
-        self.__name = name
-        self.__pin = pin
-    
-    def get_name(self):
-        return self.__name
-    
-    def authenticate(self, pin):
-        return self.__pin == pin
 
 class ATM:
+    
     def __init__(self, users):
         self.__users = users
     
@@ -102,13 +53,3 @@ class ATM:
         else:
             print("Authentication failed. Invalid name or PIN.")
             speak("Authentication failed. Invalid name or PIN.")
-
-# ALl usage 
-user1 = User("sabbir", "0000", 1000)
-user2 = User("rony", "0000", 500)
-user3 = User("sabrin", "000", 500)
-user4 = User("tiyas", "0000", 500)
-users = [user1, user2,user3,user4]
-
-atm = ATM(users)
-atm.main_menu()
