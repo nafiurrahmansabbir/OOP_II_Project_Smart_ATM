@@ -21,17 +21,23 @@ class Account:
         if amount > 0 and self.__balance >= amount:
             self.__balance -= amount
             print("Withdrawal successful.")
+            speak("Withdrawal successful.")
+            
             print("Remaining balance:", self.__balance)
         else:
             print("Invalid amount or insufficient funds.")
+            speak("Invalid amount or insufficient funds.")
 
     def deposit(self, amount):
         if amount > 0:
             self.__balance += amount
             print("Deposit successful.")
+            speak("Deposit successful.")
+            
             print("Remaining balance:", self.__balance)
         else:
             print("Invalid amount.")
+            speak("Invalid amount.")
 
 class User(Account):
     def __init__(self, name, pin, balance=0):
@@ -89,8 +95,10 @@ class ATM:
                     break
                 else:
                     print("Invalid choice. Please try again.")
+                    speak("Invalid choice. Please try again.")
         else:
             print("Authentication failed. Invalid name or PIN.")
+            speak("Authentication failed. Invalid name or PIN.")
 
 # ALl usage 
 user1 = User("sabbir", "0000", 1000)
