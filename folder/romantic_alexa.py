@@ -41,8 +41,8 @@ def run_alexa():
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is ' + time)
-    elif 'who the heck is' in command:
-        person = command.replace('who the heck is', '')
+    elif 'search' in command:
+        person = command.replace('ok ', '')
         info = wikipedia.summary(person, 1)
         print(info)
         talk(info)

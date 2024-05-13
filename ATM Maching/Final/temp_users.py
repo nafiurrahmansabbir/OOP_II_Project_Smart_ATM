@@ -1,6 +1,5 @@
 # from Voic_Controller import speak
 
-
 # class Account:
 #     def __init__(self, balance=0):
 #         self.__balance = balance
@@ -32,3 +31,17 @@
 #         else:
 #             print("Invalid amount.")
 #             speak("Invalid amount.")
+    
+    
+
+# class User(Account):
+#     def __init__(self, name, pin, balance=0):
+#         super().__init__(balance)
+#         self.__name = name
+#         self.__pin = pin
+    
+#     def get_name(self):
+#         return self.__name
+    
+#     def authenticate(self, pin):
+#         return self.__pin == pin

@@ -6,7 +6,7 @@ def main():
     user2 = User("rony", "0000", 500)
     user3 = User("sabrin", "000", 500)
     user4 = User("tiyas", "0000", 500)
-    users = [user1, user2, user3, user4]
+    users = [user1, user2, user3, user4]         #list er moddhe raikha dilam sob obj.
 
     atm = ATM(users)
     atm.main_menu()

@@ -15,7 +15,6 @@ class Account:
             self.__balance -= amount
             print("Withdrawal successful.")
             speak("Withdrawal successful.")
-            
             print("Remaining balance:", self.__balance)
         else:
             print("Invalid amount or insufficient funds.")
@@ -26,13 +25,10 @@ class Account:
             self.__balance += amount
             print("Deposit successful.")
             speak("Deposit successful.")
-            
             print("Remaining balance:", self.__balance)
         else:
             print("Invalid amount.")
             speak("Invalid amount.")
-    
-    
 
 class User(Account):
     def __init__(self, name, pin, balance=0):
@@ -45,3 +41,17 @@ class User(Account):
     
     def authenticate(self, pin):
         return self.__pin == pin
+    
+    
+    
+    # Polimorphisom Added.
+    # 
+    
+    def withdraw(self, amount):
+        if amount > 0 and self.get_balance() >= amount:
+            super().withdraw(amount)  
+          
+    def deposit(self, amount):
+        if amount > 0:
+            super().deposit(amount)  
+
