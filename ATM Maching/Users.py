@@ -1,7 +1,7 @@
 from Voic_Controller import speak
 
-class Account:
-    def __init__(self, balance=0):
+class Account():
+    def __init__(self, balance):
         self.__balance = balance
     
     def get_balance(self):
@@ -12,26 +12,27 @@ class Account:
     
     def withdraw(self, amount):
         if amount > 0 and self.__balance >= amount:
-            self.__balance -= amount
+            self.__balance -= amount              
             print("Withdrawal successful.")
             speak("Withdrawal successful.")
             print("Remaining balance:", self.__balance)
-        else:
-            print("Invalid amount or insufficient funds.")
-            speak("Invalid amount or insufficient funds.")
+        
 
     def deposit(self, amount):
         if amount > 0:
             self.__balance += amount
+            
+            # money check korte hbe.......
+            print("Wait for processing.........")
+            speak("Checking deposited Money\n processing......")
+            
             print("Deposit successful.")
             speak("Deposit successful.")
             print("Remaining balance:", self.__balance)
-        else:
-            print("Invalid amount.")
-            speak("Invalid amount.")
+        
 
 class User(Account):
-    def __init__(self, name, pin, balance=0):
+    def __init__(self, name, pin, balance):
         super().__init__(balance)
         self.__name = name
         self.__pin = pin
@@ -49,9 +50,15 @@ class User(Account):
     
     def withdraw(self, amount):
         if amount > 0 and self.get_balance() >= amount:
-            super().withdraw(amount)  
+            super().withdraw(amount)
+        else:
+            print("Invalid amount or insufficient balance.")
+            speak("Invalid amount or insufficient balance.")  
           
     def deposit(self, amount):
         if amount > 0:
-            super().deposit(amount)  
+            super().deposit(amount) 
+        else:
+            print("Invalid amount.")
+            speak("Invalid amount.") 
 

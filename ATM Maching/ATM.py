@@ -6,23 +6,26 @@ class ATM:
     def __init__(self, users):
         self.__users = users
     
+    # username r password check hobe...
+    # #
     def authenticate_user(self, name, pin):
         for user in self.__users:
             if user.get_name() == name and user.authenticate(pin):
                 return user
         return None
     
+    # start working with object
+    # # #
     def main_menu(self):
-        print("Welcome to the ATM!")
-        speak("Welcome to the ATM!")
         
-        speak("Enter your name: ")
-        name = input("Enter your name: ")
+        
+        speak("Enter your Username: ")
+        name = input("Enter your Username: ")
         
         speak("Enter your PIN: ")
         pin = input("Enter your PIN: ")
         
-        
+        # Bool carry kore rakhlam ###
         user = self.authenticate_user(name, pin)
         
         if user:
