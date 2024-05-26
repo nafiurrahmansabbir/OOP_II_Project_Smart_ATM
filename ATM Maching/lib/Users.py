@@ -1,5 +1,8 @@
 from Voic_Controller import speak
 
+# from abc import ABC, abstractmethod
+# class Account(ABC):
+
 class Account():
     def __init__(self, balance):
         self.__balance = balance
